@@ -3,7 +3,7 @@ CPU ?= cortex-m3
 BOARD ?= stm32vldiscovery
 
 qemu:
-	arm-none-eabi-as -mthumb -mcpu=$(CPU) -ggdb -c demo.S -o demo.o
+	arm-none-eabi-as -mthumb -mcpu=$(CPU) -g -c demo.S -o demo.o
 	arm-none-eabi-ld -Tmap.ld demo.o -o demo.elf
 	arm-none-eabi-objdump -D -S demo.elf > demo.elf.lst
 	arm-none-eabi-readelf -a demo.elf > demo.elf.debug
